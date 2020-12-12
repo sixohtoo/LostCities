@@ -1,21 +1,27 @@
 body {
-    background-color: grey;
+    /* background-color: lightslategray; */
+    background-color: rgb(131, 118, 118);
 }
 
 h1, h2 {
     color: white;
 }
 
+h3 {
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;;
+}
+
 ul {
     list-style-type: none;
     overflow: hidden;
+    text-align: center;
     
 }
 
 li {
-    float: left;
     font-size: 20px;
-    padding-left: 10px;;
 }
 
 #buttons li {
@@ -23,31 +29,37 @@ li {
     text-align: center;
     height: 40px;
     width: auto;
-    border: 3px solid black;
+    border-width: 3px;
+    border-style: solid;
     font-size: 30px;
-    padding:5px;
-    margin:6px;
+    padding:7px 10px; 
+    margin:1px;
+    border-radius: 10px;
     cursor: pointer;
+    display: inline-block;
 }
 
+#reset {
+    background: rgb(70, 61, 61);
+}
 
-
-
-
-.yellow {color: yellow;}
-.blue {color:blue;}
-.white {color:white;}
-.green {color: chartreuse;}
-.red {color: red;}
-.yellow li:hover {border: 3px solid yellow;}
-.blue li:hover {border: 3px solid blue;}
-.white li:hover {border: 3px solid white;}
-.green li:hover {border: 3px solid chartreuse;}
-.red li:hover {border: 3px solid red;}
+.yellow {color: yellow; border-color: black;}
+.blue {color:blue; border-color: black;}
+.white {color:white; border-color: black;}
+.green {color: chartreuse; border-color: black;}
+.red {color: red; border-color: black;}
+.purple {color: purple; border-color: black;}
+.yellow li:hover:not(.clicked) {border-color: yellow;}
+.blue li:hover:not(.clicked) {border: 3px solid blue;}
+.white li:hover:not(.clicked) {border: 3px solid white;}
+.green li:hover:not(.clicked) {border: 3px solid chartreuse;}
+.red li:hover:not(.clicked) {border: 3px solid red;}
+.purple li:hover:not(.clicked) {border: 3px solid purple;}
 .yellow .clicked {background-color: yellow; color:black}
 .blue .clicked {background-color: blue; color:black}
 .white .clicked {background-color: white; color:black}
 .green .clicked {background-color: chartreuse; color:black}
 .red .clicked {background-color: red; color:black}
+.purple .clicked {background-color: purple; color:black}
 
 

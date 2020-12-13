@@ -8,8 +8,9 @@ function reset_cards() {
     const colours = ['yellow', 'blue', 'white', 'green', 'red', 'purple']
     for (let i = 0; i < colours.length; i++) {
         colour = colours[i]
-        $('#buttons ul.'+colour).prepend(`<li class="${colour} handshake">H</li>`)
+        $('#buttons ul.'+colour).prepend(`<li class="${colour} fas handshake">&#xf2b5</li>`)
     }
+    $('#buttons li.clicked').removeClass('clicked')
     $('#reset').css('visibility', 'hidden')
     update_score()
 }
@@ -70,6 +71,8 @@ function button_click(event) {
             let colour = event.target.classList[0]
             let num_handshakes = $('#buttons li.handshake.'+colour).toArray().length
             let num_clicked = $('#buttons li.handshake.clicked.'+colour).toArray().length
+            console.log('hands:',num_handshakes)
+            console.log('clicked:',num_clicked)
             if (event.target.classList.contains('clicked')) {
                 if (num_clicked == 3) {
                     $('#buttons li.handshake.'+colour).last().removeClass('clicked')
@@ -80,7 +83,7 @@ function button_click(event) {
             }
             else {
                 if (num_handshakes < 3) {
-                    $('#buttons ul.'+colour).prepend('<li class="'+colour+' handshake clicked">H</li>')
+                    $('#buttons ul.'+colour).prepend(`<li class="${colour} fas handshake clicked">&#xf2b5</li>`)
                 }
                 else {
                     $('#buttons li.handshake.'+colour).last().addClass('clicked')

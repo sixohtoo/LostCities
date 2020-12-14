@@ -15,8 +15,65 @@ function reset_cards() {
     update_score()
 }
 
-function display_table() {
-    console.log('gotta do this!')
+function add_first_row() {
+    $('#breakdown').append(`<tr id="desc">
+    <th id="exp">EXPEDITION</th>
+    <th id="sum">SUM</th>
+    <th id="cost">COST</th>
+    <th id="mult">MULTI </th>
+    <th id="total">TOTAL</th>
+    <th id="bonus">BONUS</th>
+    <th id="final">FINAL</th>
+    </tr>`)
+}
+
+function get_name(text) {
+    if (text == 'Egyptian Desert') {
+        return 'Desert'
+    }
+    else if (text == "Neptune's Realm") {
+        return 'Atlantis'
+    }
+    else if (text == 'Himalaya Mountains') {
+        return 'Mountains'
+    }
+    else if (text == 'Brazillian Rainforest') {
+        return 'Rainforest'
+    }
+    else if (text == 'Ancient Volcanoes') {
+        return 'Volcanoes'
+    }
+    else if (text == 'Purple Colour') {
+        return 'Purple'
+    }
+}
+
+function display_table(score, multiplier) {
+
+    add_first_row()
+    const colours = ['yellow', 'blue', 'white', 'green', 'red', 'purple']
+    for (let i = 0; i < colours.length; i++) {
+        const colour = colours[i]
+        if (!isNaN(score[colour])) {
+            const exp = $(`h3.${colour}`).text()
+            const total = score[colour]
+            let bonus = 0
+            if ($('#buttons li.clicked.'+colour).toArray().length >= 8) {
+                bonus = 20
+            }
+            const mult = multiplier[colour]
+            const final = total * mult + bonus
+            const row = `<tr class="${colour}"><th>${get_name(exp)}</th>
+            <th>${total + 20}</th>
+            <th>-20</th>
+            <th>x${mult}</th>
+            <th>${total * mult}</th>
+            <th>${bonus}</th>
+            <th>${final}</th></tr>`
+            $('#breakdown').append(row)
+        }
+    }
+    $('#breakdown').after('<hr id="temp">')
 }
 
 function update_score() {
@@ -63,6 +120,11 @@ function update_score() {
         }
     }
     $('#score').text(final)
+    $('tr').remove()
+    $('hr#temp').remove()
+    if ($('#buttons li.clicked').toArray().length > 0) {
+        display_table(score, multiplier)
+    }
 }
 
 function button_click(event) {

@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,800;1,700&display=swap');
 body {
         background-color: rgb(187, 175, 175);
 }
 
-h1, h2 {
-    color: white;
+h1 {
+    color: black;
+    font-size: 60px;
+    font-family: 'Viga';
 }
 
 h3 {
@@ -36,17 +44,30 @@ li {
     border-width: 3px;
     border-style: solid;
     font-size: 30px;
-    
     margin:1px;
     border-radius: 10px;
     cursor: pointer;
-    /* display: inline-block; */
     float: left;
     display: block;
+    user-select: none;
 }
 
 #reset {
-    background: rgb(70, 61, 61);
+    /* width: 100px; */
+    height: 60px;
+    border-radius: 50px;
+    font-family: 'Russo One';
+    font-size: 25px;
+    background-color: darkorange;
+    border-color: rgb(00, 06, 02);
+    border-width: 3px;
+    cursor: pointer;
+}
+
+#score {
+    font-size: 100px;
+    font-weight: bold;
+    font-family: 'Lobster';
 }
 
 #buttons li.handshake {
@@ -54,7 +75,8 @@ li {
 }
 
 #buttons li:not(.handshake) {
-    font-family: 'impact';
+    font-family: 'Exo';
+    font-weight: 800;
     padding:7px 10px;
 }
 
@@ -77,4 +99,33 @@ li {
 .red .clicked {background-color: red; color:black}
 .purple .clicked {background-color: rgb(233, 45, 233); color:black}
 
+#desc > th {
+    color: black;
+    font-size: 24px;
+    font-weight: bolder;
+    font-family: 'Abril Fatface';
+}
 
+
+tr > th {
+    text-align: left;
+    padding-right: 13px;
+    color: inherit;
+    font-family: 'Patua One';
+    font-size: 25px;
+}
+
+#footer {
+    text-align: center;
+    font-size: 10px;
+}
+
+#footer > a {
+    color: black;
+    text-decoration: none;
+}
+
+#footer > a:hover {
+    color: blue;
+    text-decoration: underline;
+}
